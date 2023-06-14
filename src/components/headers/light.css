@@ -1,0 +1,27 @@
+.navlinks {
+  text-decoration: none;
+  display: flex;
+}
+
+.dropdown-menu.show:nth-child(2) {
+  margin-left: 30%;
+}
+
+
+li {
+  list-style-type: none;
+  width: fit-content;
+  display: inline-block;
+  gap: 1rem;
+  margin: 0rem 1rem;
+  font-size: large;
+  font-weight: 500;
+}
+
+li:hover {
+  border-bottom: #6200ee 1px solid;
+}
+
+.active {
+  color: #6200ee;
+}
