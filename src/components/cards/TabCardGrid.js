@@ -19,15 +19,22 @@ const TabControl = styled.div`
   &:hover {
     ${tw`bg-gray-300 text-gray-700`}
   }
-  ${props => props.active && tw`bg-primary-500! text-gray-100!`}
+  ${(props) => props.active && tw`bg-primary-500! text-gray-100!`}
   }
 `;
 
-const TabContent = tw(motion.div)`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
+const TabContent = tw(
+  motion.div
+)`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
 const CardContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:pr-10 md:pr-6 lg:pr-12`;
-const Card = tw(motion.a)`bg-gray-200 rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0`;
+const Card = tw(
+  motion.a
+)`bg-gray-200 rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0`;
 const CardImageContainer = styled.div`
-  ${props => css`background-image: url("${props.imageSrc}");`}
+  ${(props) =>
+    css`
+      background-image: url("${props.imageSrc}");
+    `}
   ${tw`h-56 xl:h-64 bg-center bg-cover relative rounded-t`}
 `;
 const CardRatingContainer = tw.div`leading-none absolute inline-flex bg-gray-100 bottom-0 left-0 ml-4 mb-4 rounded-full px-5 py-2 items-end`;
@@ -66,7 +73,8 @@ export default ({
         imageSrc:
           "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
         title: "Veg Mixer",
-        content: "Tomato Salad & Carrot fnwejadvn jrwnv knvj rwov  wjikm w a ejg d;s.nvfeajn o;vkaefn ",
+        content:
+          "Tomato Salad & Carrot fnwejadvn jrwnv knvj rwov  wjikm w a ejg d;s.nvfeajn o;vkaefn ",
         price: "$5.99",
         rating: "5.0",
         reviews: "87",
@@ -171,7 +179,7 @@ export default ({
   return (
     <Container>
       <ContentWithPaddingXl>
-        <HeaderRow>
+        <HeaderRow >
           <Header>{heading}</Header>
           <TabsControl>
             {Object.keys(tabs).map((tabName, index) => (
@@ -266,7 +274,7 @@ const getRandomCards = () => {
       price: "$5.99",
       rating: "5.0",
       reviews: "87",
-      url: "#"
+      url: "#",
     },
     {
       imageSrc:
@@ -276,7 +284,7 @@ const getRandomCards = () => {
       price: "$3.99",
       rating: "4.5",
       reviews: "34",
-      url: "#"
+      url: "#",
     },
     {
       imageSrc:
@@ -286,7 +294,7 @@ const getRandomCards = () => {
       price: "$3.99",
       rating: "3.9",
       reviews: "26",
-      url: "#"
+      url: "#",
     },
     {
       imageSrc:
@@ -296,7 +304,7 @@ const getRandomCards = () => {
       price: "$3.99",
       rating: "4.2",
       reviews: "95",
-      url: "#"
+      url: "#",
     },
     {
       imageSrc:
@@ -306,7 +314,7 @@ const getRandomCards = () => {
       price: "$2.99",
       rating: "5.0",
       reviews: "61",
-      url: "#"
+      url: "#",
     },
     {
       imageSrc:
@@ -316,7 +324,7 @@ const getRandomCards = () => {
       price: "$7.99",
       rating: "4.9",
       reviews: "89",
-      url: "#"
+      url: "#",
     },
     {
       imageSrc:
@@ -326,7 +334,7 @@ const getRandomCards = () => {
       price: "$8.99",
       rating: "4.6",
       reviews: "12",
-      url: "#"
+      url: "#",
     },
     {
       imageSrc:
@@ -336,8 +344,8 @@ const getRandomCards = () => {
       price: "$7.99",
       rating: "4.2",
       reviews: "19",
-      url: "#"
-    }
+      url: "#",
+    },
   ];
 
   // Shuffle array
