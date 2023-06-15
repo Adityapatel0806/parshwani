@@ -11,7 +11,7 @@ import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 
 import { data } from "ProductsData.js";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 
 const HeaderRow = tw.div`flex justify-between items-center flex-col xl:flex-row`;
 const Header = tw(SectionHeading)``;
@@ -22,7 +22,7 @@ const TabControl = styled.div`
   &:hover {
     ${tw`bg-gray-300 text-gray-700`}
   }
-  ${(props) => props.active && tw`bg-primary-500! text-gray-100!`}
+  ${(props) => props.active && tw`bg-primary-500! text-gray-100!`} 
   }
 `;
 
@@ -67,6 +67,7 @@ const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
 const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
   ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-15 transform -translate-x-2/3 text-primary-500`}
 `;
+
 
 export default ({
   heading = "Our Products",
@@ -178,7 +179,7 @@ export default ({
   const tabsKeys = Object.keys(data.tabs);
   const [activeTab, setActiveTab] = useState(tabsKeys[0]);
   return (
-    <Container>
+    <Container style={{ padding: "2rem", overflow: "scroll" }}>
       <ContentWithPaddingXl>
         <HeaderRow>
           <Header>{heading}</Header>
@@ -216,53 +217,54 @@ export default ({
           >
             {data.tabs[tabKey].map((card, index) => (
               <CardContainer key={index}>
-                <Card
-                  className="group"
-                  href={card.url}
-                  initial="rest"
-                  whileHover="hover"
-                  animate="rest"
-                >
-                  <CardImageContainer imageSrc={card.imageSrc}>
-                    <CardRatingContainer>
+                <Link to={`/products/${card.title}`}>
+                  <Card
+                    className="group"
+                    href={card.url}
+                    initial="rest"
+                    whileHover="hover"
+                    animate="rest"
+                  >
+                    <CardImageContainer imageSrc={card.imageSrc}>
+                      {/* <CardRatingContainer>
                       <CardRating>
                         <StarIcon />
                         {card.rating}
                       </CardRating>
                       <CardReview>({card.reviews})</CardReview>
-                    </CardRatingContainer>
-                    <CardHoverOverlay
-                      variants={{
-                        hover: {
-                          opacity: 1,
-                          height: "auto",
-                        },
-                        rest: {
-                          opacity: 0,
-                          height: 0,
-                        },
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-
-                      <CardButton>
-                      <Link to={`/products/${card.title}`}> Details</Link>
-                      </CardButton>
-                    </CardHoverOverlay>
-                  </CardImageContainer>
-                  <CardText>
-                    <CardTitle>{card.title}</CardTitle>
-                    <CardContent>{card.content}</CardContent>
-                    <CardPrice>{card.price}</CardPrice>
-                  </CardText>
-                </Card>
+                    </CardRatingContainer> */}
+                      <CardHoverOverlay
+                        variants={{
+                          hover: {
+                            opacity: 1,
+                            height: "auto",
+                          },
+                          rest: {
+                            opacity: 0,
+                            height: 0,
+                          },
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <CardButton>
+                          <Link to={`/products/${card.title}`}> Details</Link>
+                        </CardButton>
+                      </CardHoverOverlay>
+                    </CardImageContainer>
+                    <CardText>
+                      <CardTitle>{card.title}</CardTitle>
+                      <CardContent>{card.content}</CardContent>
+                      {/* <CardPrice>{card.price}</CardPrice> */}
+                    </CardText>
+                  </Card>
+                </Link>
               </CardContainer>
             ))}
           </TabContent>
         ))}
       </ContentWithPaddingXl>
-      <DecoratorBlob1 />
-      <DecoratorBlob2 />
+      <DecoratorBlob1 style={{ position: "fixed" }} />
+      {/* <DecoratorBlob2 /> */}
     </Container>
   );
 };
@@ -352,6 +354,6 @@ export default ({
 //     },
 //   ];
 
-  // Shuffle array
+// Shuffle array
 //   return cards.sort(() => Math.random() - 0.5);
 // };
