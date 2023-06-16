@@ -15,13 +15,13 @@ import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-
 import { ReactComponent as SvgDecoratorBlob2 } from "../../images/dot-pattern.svg";
 import DesignIllustration from "../../images/design-illustration.svg";
 
-const Container = tw.div`relative`;
+const Container = tw.div`relative min-h-screen`;
 const TwoColumn = tw.div`flex flex-col lg:flex-row md:items-center max-w-screen-xl mx-auto py-20 md:py-24`;
 const LeftColumn = tw.div`relative lg:w-6/12 lg:pr-12 flex-shrink-0 text-center lg:text-left`;
 const RightColumn = tw.div`relative mt-12 lg:mt-0 flex flex-col justify-center`;
 
-const Heading = tw.h1`font-black text-3xl md:text-5xl leading-snug max-w-3xl`;
-const Paragraph = tw.p`my-5 lg:my-8 text-sm lg:text-base font-medium text-gray-600 max-w-lg mx-auto lg:mx-0`;
+const Heading = tw.h1`font-black text-xl md:text-3xl leading-snug max-w-3xl`;
+const Paragraph = tw.p`my-5 lg:my-8 text-sm lg:text-base font-medium text-gray-800 max-w-lg mx-auto lg:mx-0`;
 
 const Actions = tw.div`flex flex-col items-center sm:flex-row justify-center lg:justify-start mt-8`;
 const PrimaryButton = tw.button`font-bold px-8 lg:px-10 py-3 rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 focus:shadow-outline focus:outline-none transition duration-300`;
@@ -83,12 +83,12 @@ export default ({
             <Paragraph>{description}</Paragraph>
             <Actions>
               <PrimaryButton as="a" href={primaryButtonUrl}>{primaryButtonText}</PrimaryButton>
-              <WatchVideoButton onClick={toggleModal}>
+              {/* <WatchVideoButton onClick={toggleModal}>
                 <span className="playIconContainer">
                   <PlayIcon className="playIcon" />
                 </span>
                 <span className="playText">{watchVideoButtonText}</span>
-              </WatchVideoButton>
+              </WatchVideoButton> */}
             </Actions>
           </LeftColumn>
           <RightColumn>
@@ -103,7 +103,7 @@ export default ({
           </RightColumn>
         </TwoColumn>
         <DecoratorBlob1 />
-        <StyledModal
+        {/* <StyledModal
           closeTimeoutMS={300}
           className="mainHeroModal"
           isOpen={modalIsOpen}
@@ -116,7 +116,7 @@ export default ({
           <div className="content">
             <ResponsiveVideoEmbed url={watchVideoYoutubeUrl} tw="w-full" />
           </div>
-        </StyledModal>
+        </StyledModal> */}
       </Container>
     </>
   );

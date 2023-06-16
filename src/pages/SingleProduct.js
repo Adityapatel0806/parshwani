@@ -59,7 +59,7 @@ function SingleProduct() {
   const { name } = useParams();
 
   const result = data.find((product) => product.name === name);
-  // console.log( data.find((product) => product.id === id))
+  console.log( data.find((product) => product.id === name))
   // data.fi
   //   console.log(result);
   const imageContainerCss = null;
