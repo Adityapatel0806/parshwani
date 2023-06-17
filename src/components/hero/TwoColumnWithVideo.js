@@ -14,14 +14,17 @@ import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-blob-1.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "../../images/dot-pattern.svg";
 import DesignIllustration from "../../images/design-illustration.svg";
+import client1 from "images/client-1.png";
+import client2 from "images/client-2.png";
 
-const Container = tw.div`relative`;
-const TwoColumn = tw.div`flex flex-col lg:flex-row md:items-center max-w-screen-xl mx-auto py-20 md:py-24`;
+const Container = tw.div`relative min-h-screen`;
+const TwoColumn = tw.div`flex flex-col lg:flex-row md:items-center justify-center max-w-screen-xl mx-auto`;
 const LeftColumn = tw.div`relative lg:w-6/12 lg:pr-12 flex-shrink-0 text-center lg:text-left`;
 const RightColumn = tw.div`relative mt-12 lg:mt-0 flex flex-col justify-center`;
+const ComapnyCol = tw.div`absolute bottom-0 w-screen flex flex-row justify-center mx-0 px-0 bg-gray-200`;
 
-const Heading = tw.h1`font-black text-3xl md:text-5xl leading-snug max-w-3xl`;
-const Paragraph = tw.p`my-5 lg:my-8 text-sm lg:text-base font-medium text-gray-600 max-w-lg mx-auto lg:mx-0`;
+const Heading = tw.h1`font-black text-xl md:text-3xl leading-snug max-w-3xl`;
+const Paragraph = tw.p`my-5 lg:my-8 text-sm lg:text-base font-medium text-gray-800 max-w-lg mx-auto lg:mx-0`;
 
 const Actions = tw.div`flex flex-col items-center sm:flex-row justify-center lg:justify-start mt-8`;
 const PrimaryButton = tw.button`font-bold px-8 lg:px-10 py-3 rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 focus:shadow-outline focus:outline-none transition duration-300`;
@@ -60,13 +63,13 @@ const CloseModalButton = tw.button`absolute top-0 right-0 mt-8 mr-8 hocus:text-p
 
 export default ({
   heading = "Modern React Templates, Just For You",
- description="Our templates are easy to setup, understand and customize. Fully modular components with a variety of pages and components.",
-  primaryButtonText="Get Started",
-  primaryButtonUrl="#",
-  watchVideoButtonText="Watch Video",
-  watchVideoYoutubeUrl="https://www.youtube.com/embed/_GuOjXYl5ew",
-  imageSrc=DesignIllustration,
-  imageCss=null,
+  description = "Our templates are easy to setup, understand and customize. Fully modular components with a variety of pages and components.",
+  primaryButtonText = "Get Started",
+  primaryButtonUrl = "#",
+  watchVideoButtonText = "Watch Video",
+  watchVideoYoutubeUrl = "https://www.youtube.com/embed/_GuOjXYl5ew",
+  imageSrc = DesignIllustration,
+  imageCss = null,
   imageDecoratorBlob = false,
 }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -82,28 +85,36 @@ export default ({
             <Heading>{heading}</Heading>
             <Paragraph>{description}</Paragraph>
             <Actions>
-              <PrimaryButton as="a" href={primaryButtonUrl}>{primaryButtonText}</PrimaryButton>
-              <WatchVideoButton onClick={toggleModal}>
+              <PrimaryButton as="a" href={primaryButtonUrl}>
+                {primaryButtonText}
+              </PrimaryButton>
+              {/* <WatchVideoButton onClick={toggleModal}>
                 <span className="playIconContainer">
                   <PlayIcon className="playIcon" />
                 </span>
                 <span className="playText">{watchVideoButtonText}</span>
-              </WatchVideoButton>
+              </WatchVideoButton> */}
             </Actions>
           </LeftColumn>
           <RightColumn>
             <IllustrationContainer>
-              <img
-                css={imageCss}
-                src={imageSrc}
-                alt="Hero"
-              />
+              <img css={imageCss} src={imageSrc} alt="Hero" />
               {imageDecoratorBlob && <DecoratorBlob2 />}
             </IllustrationContainer>
           </RightColumn>
-        </TwoColumn>
+          
+          </TwoColumn>
+          <ComapnyCol>
+      
+        <img className="w-20 mx-2" src={client1} alt="Company Logo 1" />
+        <img className="w-20 mx-2" src={client1} alt="Company Logo 2" />
+        <img className="w-20 mx-2" src={client2} alt="Company Logo 3" />
+      
+    </ComapnyCol>
         <DecoratorBlob1 />
-        <StyledModal
+        
+
+        {/* <StyledModal
           closeTimeoutMS={300}
           className="mainHeroModal"
           isOpen={modalIsOpen}
@@ -116,7 +127,7 @@ export default ({
           <div className="content">
             <ResponsiveVideoEmbed url={watchVideoYoutubeUrl} tw="w-full" />
           </div>
-        </StyledModal>
+        </StyledModal> */}
       </Container>
     </>
   );

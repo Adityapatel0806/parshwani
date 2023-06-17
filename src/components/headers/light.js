@@ -126,7 +126,7 @@ export default ({
   const defaultLogoLink = (
     <LogoLink href="/">
       <img src={logo} alt="logo" />
-      Water pumps
+      Parshwami Enginners
     </LogoLink>
   );
 
@@ -196,10 +196,13 @@ const collapseBreakPointCssMap = {
 };
 
 function CustomLink({ to, children, ...props }) {
+
   const resolvedPath = useResolvedPath(to);
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
 
   return (
+        // <Header className={`${className || 'header-light'} ${visible ? 'sticky' : ''} ${visible ? '' : 'hidden'}`}>
+
     <li className={isActive ? "active" : ""}>
       <Link to={to} {...props}>
         {children}
