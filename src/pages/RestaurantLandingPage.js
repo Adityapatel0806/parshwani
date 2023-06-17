@@ -30,7 +30,7 @@ export default () => {
           </>
         }
         description="Authorize Dealer for AAF Air Filters, EBARA Pumps & Manufacturers of IGENT Industrial electric panels."
-        imageSrc="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
+        imageSrc="http://www.parshwamiengineers.com/assets/img/hero-img.png"
         imageCss={imageCss}
         imageDecoratorBlob={true}
         primaryButtonText="Explore Products"
