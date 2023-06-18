@@ -109,6 +109,7 @@ import {
   Routes,
   Route,
   BrowserRouter,
+  Navigate,
 } from "react-router-dom";
 import Productspage from "pages/Productspage.js";
 import SingleProduct from "pages/SingleProduct.js";
@@ -125,6 +126,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Productspage />} />
         <Route path="/products/:name" element={<SingleProduct />} />
+        <Route path="*" element={<Navigate to="/404" />} />
       </Routes>
     </>
   );

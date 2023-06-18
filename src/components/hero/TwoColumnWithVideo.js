@@ -21,7 +21,7 @@ const Container = tw.div`relative min-h-screen`;
 const TwoColumn = tw.div`flex flex-col lg:flex-row md:items-center justify-center max-w-screen-xl mx-auto`;
 const LeftColumn = tw.div`relative lg:w-6/12 lg:pr-12 flex-shrink-0 text-center lg:text-left`;
 const RightColumn = tw.div`relative mt-12 lg:mt-0 flex flex-col justify-center`;
-const ComapnyCol = tw.div`absolute bottom-0 w-screen flex flex-row justify-center mx-0 px-0 bg-gray-200`;
+const ComapnyCol = tw.div`relative flex flex-row  mt-12 w-screen justify-evenly items-center  bg-gray-200`;
 
 const Heading = tw.h1`font-black text-xl md:text-3xl leading-snug max-w-3xl`;
 const Paragraph = tw.p`my-5 lg:my-8 text-sm lg:text-base font-medium text-gray-800 max-w-lg mx-auto lg:mx-0`;
@@ -53,7 +53,7 @@ const StyledModal = styled(ReactModalAdapter)`
     ${tw`fixed inset-0 z-50`}
   }
   &.mainHeroModal__content {
-    ${tw`xl:mx-auto m-4 sm:m-16 max-w-screen-xl absolute inset-0 flex justify-center items-center rounded-lg bg-gray-200 outline-none`}
+    ${tw`xl:mx-auto m-4 sm:m-16  absolute inset-0 flex justify-center items-center rounded-lg bg-gray-200 outline-none`}
   }
   .content {
     ${tw`w-full lg:p-16`}
@@ -102,17 +102,7 @@ export default ({
               {imageDecoratorBlob && <DecoratorBlob2 />}
             </IllustrationContainer>
           </RightColumn>
-          
-          </TwoColumn>
-          <ComapnyCol>
-      
-        <img className="w-20 mx-2" src={client1} alt="Company Logo 1" />
-        <img className="w-20 mx-2" src={client1} alt="Company Logo 2" />
-        <img className="w-20 mx-2" src={client2} alt="Company Logo 3" />
-      
-    </ComapnyCol>
-        <DecoratorBlob1 />
-        
+        </TwoColumn>
 
         {/* <StyledModal
           closeTimeoutMS={300}
@@ -128,6 +118,29 @@ export default ({
             <ResponsiveVideoEmbed url={watchVideoYoutubeUrl} tw="w-full" />
           </div>
         </StyledModal> */}
+        <ComapnyCol>
+          <div>
+            <img
+              src={client1}
+              alt="Company Logo 1"
+            />
+          </div>
+
+          <div>
+            <img
+              src={client2}
+              alt="Company Logo 1"
+            />
+          </div>
+
+          <div>
+            <img
+              src={client1}
+              alt="Company Logo 1"
+            />
+          </div>
+        </ComapnyCol>
+        <DecoratorBlob1 />
       </Container>
     </>
   );
