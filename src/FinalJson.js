@@ -10,7 +10,7 @@ export const datas = [
             id: "1",
             imagesrc: "",
             name: "ChevroNet",
-            type: "Pre-Filter",
+            type: "Pre-Filter", 
             overview: [
               "Economical Pre-filter",
               "Suitable lknaclav   kvb dwv k isd b high humidity conditions",
@@ -62,11 +62,11 @@ export const datas = [
           {
             id: "1",
             imagesrc: "",
-            name: "ChevroNet",
+            name: "ChevroNet1",
             type: "Pre-Filter",
             overview: [
               "Economical Pre-filter",
-              "Suitable lknaclav   kvb dwv k isd b high humidity conditions",
+              "Suitable lknaclav   kvb dwv k adi isd b high humidity conditions",
               "Reusable Filter frame",
               "Replaceable filter media",
               "Lightweight and compact size",
@@ -119,7 +119,7 @@ export const datas = [
           {
             id: "1",
             imagesrc: "",
-            name: "ChevroNet",
+            name: "tv",
             type: "Pre-Filter",
             overview: [
               "Economical Pre-filter",
@@ -162,6 +162,7 @@ export const datas = [
               { image: "", title: "School & University" },
             ],
           },
+          
         ],
       },
     ],
