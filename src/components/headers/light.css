@@ -19,11 +19,11 @@ li {
 }
 
 li:hover {
-  border-bottom: #6200ee 1px solid;
+  border-bottom:  #052c65 1px solid;
 }
 
 .active {
-  color: #6200ee;
+  color: #052c65;
 }
 
 .slide-in {
