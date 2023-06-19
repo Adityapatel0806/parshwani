@@ -4,7 +4,7 @@ export const datas = [
     logo: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     products: [
       {
-        category: "Air  Filter",
+        category: "Air Filter",
         data: [
           {
             id: "1",

@@ -114,6 +114,7 @@ import {
 import Productspage from "pages/Productspage.js";
 import SingleProduct from "pages/SingleProduct.js";
 import ContactUs from "pages/ContactUs.js";
+import Pro from "pages/Pro.js";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -125,11 +126,10 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Productspage />} />
+        <Route path="/products/:type" element={<Pro />} />
         <Route path="/contactus" element={<ContactUs/>} />
-        <Route path="/products/:" element={<SingleProduct />} />
-        <Route path="/products/:name" element={<SingleProduct />} />
-        <Route path="*" element={<Navigate to="/404" />} />
+        <Route path="/products/:type/:name" element={<SingleProduct />} />
+        {/* <Route path="*" element={<Navigate to="/404" />} /> */}
       </Routes>
     </>
   );

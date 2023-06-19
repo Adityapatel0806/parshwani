@@ -87,7 +87,7 @@ export default ({
       <CustomLink className="navlinks" to={"/"}>
         Home
       </CustomLink>
-      <CustomLink className="navlinks" to={"products"}>
+      <CustomLink className="navlinks" to={'none'}>
         <NavDropdown title="Products" id="basic-nav-dropdown">
           {datas.map((item) => (
             <NavDropdown
@@ -97,9 +97,13 @@ export default ({
               id="basic-nav-dropdown"
             >
               {item.products.map((product) => (
-                <Link to={`/products/${product.category}`}>
-                  <NavDropdown.Item>{product.category}</NavDropdown.Item>
-                </Link>
+                <NavDropdown.Item>
+                  <Link to={`products/${product.category}`}>
+                  {product.category}
+                    {/* <CustomLink to={`products/${product.category}`}>{product.category}</CustomLink> */}
+                    {console.log(product)}
+                  </Link>
+                </NavDropdown.Item>
               ))}
             </NavDropdown>
           ))}

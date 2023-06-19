@@ -57,6 +57,7 @@ function SingleProduct() {
   //   { id:2, name: "Grilled Salmon" },
   // ];
   const { name } = useParams();
+  
 var result={}
   // const result = data.find((product) => product.name === name);
   const results = datas.find((data) =>
@@ -67,7 +68,6 @@ var result={}
           // return item;
           result=item;
         }
-        // item.name === name;
       })
     )
   );
