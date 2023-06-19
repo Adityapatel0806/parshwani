@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -13,10 +13,10 @@ import logo from "../../images/logo.svg";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { datas } from "FinalJson";
 
 const Header = tw.header`
-  flex justify-between items-center
-  max-w-screen-xl mx-auto mt-10 
+  fixed w-full top-0 bg-white z-10
 `;
 
 export const NavLinks = tw.div`inline-block`;
@@ -80,32 +80,32 @@ export default ({
    * changing the defaultLinks variable below below.
    * If you manipulate links here, all the styling on the links is already done for you. If you pass links yourself though, you are responsible for styling the links or use the helper styled components that are defined here (NavLink)
    */
+
   const defaultLinks = [
     <NavLinks key={1}>
       <CustomLink className="navlinks" to={"/"}>
         Home
       </CustomLink>
-      <CustomLink className="navlinks" to={"/products"}>
-        <NavDropdown title="Products" id="basic-nav-dropdown" >
-          <NavDropdown className="first"
-            style={{ marginLeft: "10px"}  }
-            title="Products 2"
-            id="basic-nav-dropdown"
-          >
-              <NavDropdown.Item>Company 1</NavDropdown.Item>
-              <NavDropdown.Item href="/products">Company 2</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Company 3</NavDropdown.Item>
-          </NavDropdown>
-
-          <NavDropdown
-            style={{ marginLeft: "10px" }}
-            title="Products 2"
-            id="basic-nav-dropdown"
-          >
-            <NavDropdown.Item>Company 1</NavDropdown.Item>
-            <NavDropdown.Item href="/products">Company 2</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Company 3</NavDropdown.Item>
-          </NavDropdown>
+      <CustomLink className="navlinks" to={'none'}>
+        <NavDropdown title="Products" id="basic-nav-dropdown">
+          {datas.map((item) => (
+            <NavDropdown
+              className="first"
+              style={{ marginLeft: "10px" }}
+              title={item.company}
+              id="basic-nav-dropdown"
+            >
+              {item.products.map((product) => (
+                <NavDropdown.Item>
+                  <Link to={`products/${product.category}`}>
+                  {product.category}
+                    {/* <CustomLink to={`products/${product.category}`}>{product.category}</CustomLink> */}
+                    {console.log(product)}
+                  </Link>
+                </NavDropdown.Item>
+              ))}
+            </NavDropdown>
+          ))}
         </NavDropdown>
       </CustomLink>
       <CustomLink className="navlinks" to={"/Contactus"}>
@@ -132,9 +132,33 @@ export default ({
 
   logoLink = logoLink || defaultLogoLink;
   links = links || defaultLinks;
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
+
+  useEffect(() => {
+  
+    setPrevScrollPos(window.scrollY);
+    const handleScroll = () => { 
+      const currentScrollPos = window.scrollY;
+      const isScrollingUp = prevScrollPos >= currentScrollPos;
+      console.log(currentScrollPos, prevScrollPos, isScrollingUp);
+      setIsNavbarVisible(isScrollingUp || currentScrollPos < 10);
+      setPrevScrollPos(currentScrollPos);
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+  
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos]);
+
 
   return (
-    <Header className={className || "header-light"}>
+    <Header className={`fixed w-full top-0 bg-white z-10 ${
+      isNavbarVisible ? 'slide-in' : 'slide-out'
+    }`}
+    >
       <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
         {logoLink}
         {links}
@@ -196,12 +220,11 @@ const collapseBreakPointCssMap = {
 };
 
 function CustomLink({ to, children, ...props }) {
-
   const resolvedPath = useResolvedPath(to);
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
 
   return (
-        // <Header className={`${className || 'header-light'} ${visible ? 'sticky' : ''} ${visible ? '' : 'hidden'}`}>
+    // <Header className={`${className || 'header-light'} ${visible ? 'sticky' : ''} ${visible ? '' : 'hidden'}`}>
 
     <li className={isActive ? "active" : ""}>
       <Link to={to} {...props}>

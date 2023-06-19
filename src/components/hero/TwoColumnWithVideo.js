@@ -17,11 +17,11 @@ import DesignIllustration from "../../images/design-illustration.svg";
 import client1 from "images/client-1.png";
 import client2 from "images/client-2.png";
 
-const Container = tw.div`relative min-h-screen`;
+const Container = tw.div`relative min-h-screen flex justify-center`;
 const TwoColumn = tw.div`flex flex-col lg:flex-row md:items-center justify-center max-w-screen-xl mx-auto`;
-const LeftColumn = tw.div`relative lg:w-6/12 lg:pr-12 flex-shrink-0 text-center lg:text-left`;
-const RightColumn = tw.div`relative mt-12 lg:mt-0 flex flex-col justify-center`;
-const ComapnyCol = tw.div`relative flex flex-row  mt-12 w-screen justify-evenly items-center  bg-gray-200`;
+const LeftColumn = tw.div` lg:w-6/12 lg:pr-12 flex-shrink-0 text-center lg:text-left`;
+const RightColumn = tw.div` mt-12 lg:mt-0`;
+const ComapnyCol = tw.div`absolute bottom-0 flex flex-row  w-screen justify-evenly items-center  bg-gray-200`;
 
 const Heading = tw.h1`font-black text-xl md:text-3xl leading-snug max-w-3xl`;
 const Paragraph = tw.p`my-5 lg:my-8 text-sm lg:text-base font-medium text-gray-800 max-w-lg mx-auto lg:mx-0`;

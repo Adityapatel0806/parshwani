@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import { data } from "./newjson";
+import { datas } from "../FinalJson";
 import { Card } from "react-bootstrap";
 
 import tw from "twin.macro";
@@ -57,11 +57,23 @@ function SingleProduct() {
   //   { id:2, name: "Grilled Salmon" },
   // ];
   const { name } = useParams();
+  
+var result={}
+  // const result = data.find((product) => product.name === name);
+  const results = datas.find((data) =>
+    data.products.some((product) =>
+      product.data.some((item) => {
+        if (item.name === name) {
+          console.log(item);
+          // return item;
+          result=item;
+        }
+      })
+    )
+  );
+  // console.log(temp);
+  // console.log(result);
 
-  const result = data.find((product) => product.name === name);
-  console.log( data.find((product) => product.id === name))
-  // data.fi
-  //   console.log(result);
   const imageContainerCss = null;
   const imageCss = null;
   const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
@@ -87,7 +99,7 @@ function SingleProduct() {
                     display: "flex",
                     margin: "0.5rem 0rem",
                     borderBottom: "none",
-                    textAlign:"left"
+                    textAlign: "left",
                   }}
                 >
                   {product}
@@ -105,7 +117,6 @@ function SingleProduct() {
           imageDecoratorBlob={true}
           imageDecoratorBlobCss={tw`left-1/2 -translate-x-1/2 md:w-32 md:h-32 opacity-25`}
         />
-        {console.log(result)}
         <Subheading style={{ fontSize: "2rem" }}>Applications</Subheading>
         <ThreeColumnContainer>
           {result.Applications.map((s) => (
