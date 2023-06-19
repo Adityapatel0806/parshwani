@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -15,8 +15,7 @@ import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
 const Header = tw.header`
-  flex justify-between items-center
-  max-w-screen-xl mx-auto mt-10 
+  fixed w-full top-0 bg-white z-10
 `;
 
 export const NavLinks = tw.div`inline-block`;
@@ -132,9 +131,33 @@ export default ({
 
   logoLink = logoLink || defaultLogoLink;
   links = links || defaultLinks;
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
+
+  useEffect(() => {
+  
+    setPrevScrollPos(window.scrollY);
+    const handleScroll = () => { 
+      const currentScrollPos = window.scrollY;
+      const isScrollingUp = prevScrollPos >= currentScrollPos;
+      console.log(currentScrollPos, prevScrollPos, isScrollingUp);
+      setIsNavbarVisible(isScrollingUp || currentScrollPos < 10);
+      setPrevScrollPos(currentScrollPos);
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+  
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos]);
+
 
   return (
-    <Header className={className || "header-light"}>
+    <Header className={`fixed w-full top-0 bg-white z-10 ${
+      isNavbarVisible ? 'slide-in' : 'slide-out'
+    }`}
+    >
       <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
         {logoLink}
         {links}
