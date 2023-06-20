@@ -45,6 +45,7 @@ const SocialLink = styled.a`
     ${tw`w-4 h-4`}
   }
 `;
+const year = new Date().getFullYear();
 
 export default () => {
   return (
@@ -123,7 +124,8 @@ export default () => {
             <SubscribeNewsletterContainer>
               <ColumnHeading>Subscribe to our Newsletter</ColumnHeading>
               <SubscribeText>
-                We deliver high quality blog posts written by professionals weekly. And we promise no spam.
+                We deliver high quality blog posts written by professionals
+                weekly. And we promise no spam.
               </SubscribeText>
               <SubscribeForm method="get" action="#">
                 <Input type="email" placeholder="Your Email Address" />
@@ -136,9 +138,11 @@ export default () => {
         <ThreeColRow>
           <LogoContainer>
             <LogoImg src={LogoImage} />
-            <LogoText>Treact Inc.</LogoText>
+            <LogoText>Parshwamiengineers</LogoText>
           </LogoContainer>
-          <CopywrightNotice>&copy; 2018 Treact Inc. All Rights Reserved.</CopywrightNotice>
+          <CopywrightNotice>
+            &copy; {year} Parshwamiengineers All Rights Reserved.
+          </CopywrightNotice>
           <SocialLinksContainer>
             <SocialLink href="https://facebook.com">
               <FacebookIcon />
