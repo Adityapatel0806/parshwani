@@ -10,13 +10,14 @@ export default function Pro() {
   const results = datas.find((data) =>
     data.products.some((product) => {
       if (product.category === type) {
-        console.log(product);
+        // console.log(product);
         result = product;
       }
     })
   );
-//   console.log(result);
-  return <div>
+  console.log(result);
+  return <div style={{marginTop:"100px"}}>
+  hihi
   {result.category}
   {result.data.map((item) =><Link to={`${item.name}`}>{item.name}</Link>)}
   </div>;

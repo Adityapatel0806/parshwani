@@ -100,7 +100,7 @@ export default ({
                   <Link to={`products/${product.category}`}>
                   {product.category}
                     {/* <CustomLink to={`products/${product.category}`}>{product.category}</CustomLink> */}
-                    {console.log(product)}
+                    {/* {console.log(product)} */}
                   </Link>
                 </NavDropdown.Item>
               ))}
@@ -155,7 +155,7 @@ export default ({
 
 
   return (
-    <Header className={`fixed w-full top-0 bg-white z-10 ${
+    <Header className={`fixed w-full top-0 bg-white z-10 p-4 ${
       isNavbarVisible ? 'slide-in' : 'slide-out'
     }`}
     >
