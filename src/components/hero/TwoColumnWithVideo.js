@@ -16,9 +16,10 @@ import { ReactComponent as SvgDecoratorBlob2 } from "../../images/dot-pattern.sv
 import DesignIllustration from "../../images/design-illustration.svg";
 import client1 from "images/client-1.png";
 import client2 from "images/client-2.png";
+import client3 from "images/client-3.png";
 
 const Container = tw.div`relative min-h-screen flex justify-center`;
-const TwoColumn = tw.div`flex flex-col lg:flex-row md:items-center justify-center max-w-screen-xl mx-auto`;
+const TwoColumn = tw.div`flex flex-col lg:flex-row md:items-center justify-center max-w-screen-xl mx-4`;
 const LeftColumn = tw.div` lg:w-6/12 lg:pr-12 flex-shrink-0 text-center lg:text-left`;
 const RightColumn = tw.div` mt-12 lg:mt-0`;
 const ComapnyCol = tw.div`absolute bottom-0 flex flex-row  w-screen justify-evenly items-center  bg-gray-200`;
@@ -135,7 +136,7 @@ export default ({
 
           <div>
             <img
-              src={client1}
+              src={client3}
               alt="Company Logo 1"
             />
           </div>

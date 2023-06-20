@@ -9,14 +9,16 @@ import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 
-import logo from "../../images/logo.svg";
+import logo from "../../images/mainLogo.png";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import { datas } from "FinalJson";
+import { BsWhatsapp } from 'react-icons/bs';
+import { TbPhoneCall } from 'react-icons/tb';
 
 const Header = tw.header`
-  fixed w-full top-0 bg-white z-10
+  fixed w-full top-0 bg-white z-10 py-1 px-4 md:py-2 md:px-20
 `;
 
 export const NavLinks = tw.div`inline-block`;
@@ -41,7 +43,7 @@ export const LogoLink = styled(NavLink)`
   ${tw`flex items-center font-black border-b-0 text-2xl! ml-0!`};
 
   img {
-    ${tw`w-10 mr-3`}
+    ${tw`w-32 mr-3`}
   }
 `;
 
@@ -60,10 +62,15 @@ export const DesktopNavLinks = tw.nav`
   hidden lg:flex flex-1 justify-between items-center 
 `;
 
+export const NavbarStyle = tw.nav`
+  md:px-4 px-2
+`;
+
 export default ({
   roundedHeaderButton = false,
   logoLink,
   links,
+  socialLinks,
   className,
   collapseBreakpointClass = "lg",
 }) => {
@@ -126,12 +133,21 @@ export default ({
   const defaultLogoLink = (
     <LogoLink href="/">
       <img src={logo} alt="logo" />
-      Parshwami Enginners
     </LogoLink>
   );
-
+  const LogoLinkCus = tw.a`
+  hover:text-green-500 transition-colors duration-300 
+`;
+ const socialLinksDefault = (
+    <div className='d-flex' tw={'space-x-3'} key={1}>
+    <LogoLinkCus href="https://wa.me/919428599223?text=Hello%20Parshwami%20Engineering" ><BsWhatsapp/></LogoLinkCus>
+    <LogoLinkCus href="tel:+919428599223" ><TbPhoneCall/></LogoLinkCus>
+    </div>
+  
+ );
   logoLink = logoLink || defaultLogoLink;
   links = links || defaultLinks;
+  socialLinks = socialLinksDefault;
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
 
@@ -155,24 +171,28 @@ export default ({
 
 
   return (
-    <Header className={`fixed w-full top-0 bg-white z-10 p-4 ${
+    <Header style={{backgroundColor: '#fafafa', boxShadow: '0 2px 4px 0 rgba(0,0,0,.2)'}} className={`fixed w-full top-0 z-10 ${
       isNavbarVisible ? 'slide-in' : 'slide-out'
     }`}
     >
       <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
         {logoLink}
+        
         {links}
+        {socialLinks}
       </DesktopNavLinks>
 
       <MobileNavLinksContainer
         css={collapseBreakpointCss.mobileNavLinksContainer}
       >
         {logoLink}
+        {socialLinks}
         <MobileNavLinks
           initial={{ x: "150%", display: "none" }}
           animate={animation}
           css={collapseBreakpointCss.mobileNavLinks}
         >
+          
           {links}
         </MobileNavLinks>
         <NavToggle
