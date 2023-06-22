@@ -13,7 +13,7 @@ import SupportIconImage from "images/support-icon.svg";
 import ShieldIconImage from "images/shield-icon.svg";
 import CustomizeIconImage from "images/customize-icon.svg";
 import { ReactComponent as SvgDecoratorBlob3 } from "images/svg-decorator-blob-3.svg";
-
+import { FcServices } from 'react-icons/fc'
 const Heading = tw(SectionHeading)``;
 const Subheading = tw(SubheadingBase)`text-center mb-3`;
 const Description = tw(SectionDescription)`text-center mx-auto`;
@@ -23,6 +23,8 @@ const ThreeColumnContainer = styled.div`
 const Column = styled.div`
   ${tw`lg:w-1/3 max-w-xs`}
 `;
+
+const ServiceLogo = tw.span`w-2`;
 
 const Card = styled.a`
   ${tw`flex flex-col items-center text-center h-full mx-4 px-4 py-8 rounded transition-transform duration-300 hover:cursor-pointer transform hover:scale-105 `}
@@ -98,18 +100,19 @@ export default ({
         <ThreeColumnContainer>
           {cards.map((card, i) => (
             <Column key={i}>
-              <Card href={card.url}>
-                <span className="imageContainer" css={imageContainerCss}>
-                  <img src={card.imageSrc} alt="" css={imageCss} />
+              <Card>
+                <span>
+                  <FcServices style={{fontSize:'5rem'}}/>
                 </span>
+                
                 <span className="title">{card.title}</span>
                 <p className="description">{card.description}</p>
-                {linkText && (
+                {/* {linkText && (
                   <span className="link">
                     <span>{linkText}</span>
                     <ArrowRightIcon className="icon" />
                   </span>
-                )}
+                )} */}
               </Card>
             </Column>
           ))}

@@ -4,10 +4,9 @@ import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 
-import LogoImage from "images/logo.svg";
-import { ReactComponent as FacebookIcon } from "images/facebook-icon.svg";
-import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
-import { ReactComponent as YoutubeIcon } from "images/youtube-icon.svg";
+import LogoImage from "images/mainLogo.png";
+import { BsWhatsapp } from 'react-icons/bs';
+import { TbPhoneCall } from 'react-icons/tb';
 
 const Container = tw.div`relative bg-gray-200 text-gray-700 -mb-8 -mx-8 px-8 py-20 lg:py-24`;
 const Content = tw.div`max-w-screen-xl mx-auto relative z-10`;
@@ -33,7 +32,7 @@ const Divider = tw.div`my-16 border-b-2 border-gray-300 w-full`;
 const ThreeColRow = tw.div`flex flex-col md:flex-row items-center justify-between`;
 
 const LogoContainer = tw.div`flex items-center justify-center md:justify-start`;
-const LogoImg = tw.img`w-8`;
+const LogoImg = tw.img`w-48`;
 const LogoText = tw.h5`ml-2 text-xl font-black tracking-wider text-gray-800`;
 
 const CopywrightNotice = tw.p`text-center text-sm sm:text-base mt-8 md:mt-0 font-medium text-gray-500`;
@@ -53,20 +52,23 @@ export default () => {
       <Content>
         <SixColumns>
           <Column>
-            <ColumnHeading>Main</ColumnHeading>
+            <ColumnHeading>Quick Links</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">Blog</Link>
+                <Link href="/">Home</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">FAQs</Link>
+                <Link href="/contactus">Contact Us</Link>
               </LinkListItem>
+              {/* <LinkListItem>
+                <Link href="#">FAQs</Link>
+              </LinkListItem> 
               <LinkListItem>
                 <Link href="#">Support</Link>
               </LinkListItem>
               <LinkListItem>
                 <Link href="#">About Us</Link>
-              </LinkListItem>
+              </LinkListItem>*/}
             </LinkList>
           </Column>
           <Column>
@@ -86,7 +88,7 @@ export default () => {
               </LinkListItem>
             </LinkList>
           </Column>
-          <Column>
+          {/* <Column>
             <ColumnHeading>Press</ColumnHeading>
             <LinkList>
               <LinkListItem>
@@ -119,7 +121,7 @@ export default () => {
                 <Link href="#">Disclaimer</Link>
               </LinkListItem>
             </LinkList>
-          </Column>
+          </Column> */}
           <SubscribeNewsletterColumn>
             <SubscribeNewsletterContainer>
               <ColumnHeading>Subscribe to our Newsletter</ColumnHeading>
@@ -138,20 +140,16 @@ export default () => {
         <ThreeColRow>
           <LogoContainer>
             <LogoImg src={LogoImage} />
-            <LogoText>Parshwamiengineers</LogoText>
           </LogoContainer>
           <CopywrightNotice>
             &copy; {year} Parshwamiengineers All Rights Reserved.
           </CopywrightNotice>
           <SocialLinksContainer>
-            <SocialLink href="https://facebook.com">
-              <FacebookIcon />
+            <SocialLink href="https://wa.me/919428599223?text=Hello%20Parshwami%20Engineering">
+              <BsWhatsapp />
             </SocialLink>
-            <SocialLink href="https://twitter.com">
-              <TwitterIcon />
-            </SocialLink>
-            <SocialLink href="https://youtube.com">
-              <YoutubeIcon />
+            <SocialLink href="tel:+919428599223">
+              <TbPhoneCall />
             </SocialLink>
           </SocialLinksContainer>
         </ThreeColRow>

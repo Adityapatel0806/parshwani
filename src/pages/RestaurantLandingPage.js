@@ -10,9 +10,10 @@ import TabGrid from "components/cards/TabCardGrid.js";
 import Testimonial from "components/testimonials/ThreeColumnWithProfileImage.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 
-import chefIconImageSrc from "images/chef-icon.svg";
-import celebrationIconImageSrc from "images/celebration-icon.svg";
-import shopIconImageSrc from "images/shop-icon.svg";
+
+import aboutUS from "images/about-us.png";
+import { services } from "./services";
+
 
 export default () => {
   const Subheading = tw.span`tracking-wider text-sm font-medium`;
@@ -38,29 +39,25 @@ export default () => {
         primaryButtonUrl="/products"
       />
       <MainFeature
-        subheading={<Subheading>Established Since 2014</Subheading>}
+        subheading={<Subheading>Established Since 2018</Subheading>}
         heading={
           <>
             We've been serving for
-            <wbr /> <HighlightedText>over 5 years.</HighlightedText>
+            <wbr /> <HighlightedText>over 5+ years.</HighlightedText>
           </>
         }
         description={
           <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            We are your reliable partner for all your filter, pumping, and electrical panel needs. As an authorized dealer for AAF Air Filters and EBARA Pumps, and manufacturers of IGENT Industrial electric panels, we offer high-quality products and exceptional service. With our expertise and dedication, we provide efficient solutions that optimize performance and ensure the smooth operation of your systems. Trust us to deliver reliable products, expert guidance, and unparalleled customer satisfaction. Choose us as your trusted partner and power your success today.
             <br />
             <br />
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
+            At our company, we believe in delivering excellence through innovation. We constantly stay at the forefront of industry advancements to bring you the latest technologies and solutions. Our team of experienced professionals combines technical expertise with a deep understanding of your unique requirements. We are passionate about helping you achieve your goals by providing customized solutions that enhance efficiency, reduce downtime, and maximize productivity. Partner with us and experience the perfect synergy of quality, reliability, and innovation in every aspect of our service.
           </Description>
         }
         buttonRounded={false}
         textOnLeft={false}
         primaryButtonText="Latest Offers"
-        imageSrc={
-          "https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
-        }
+        imageSrc={aboutUS}
         imageCss={imageCss}
         imageDecoratorBlob={true}
         imageDecoratorBlobCss={tw`left-1/2 -translate-x-1/2 md:w-32 md:h-32 opacity-25`}
@@ -72,26 +69,7 @@ export default () => {
             Amazing <HighlightedText>Services.</HighlightedText>
           </>
         }
-        cards={[
-          {
-            imageSrc: shopIconImageSrc,
-            title: "Company Name 1 ",
-            description: "Lorem ipsum donor amet siti ceali placeholder text",
-            url: "https://google.com",
-          },
-          {
-            imageSrc: chefIconImageSrc,
-            title: "Company Name 2",
-            description: "Lorem ipsum donor amet siti ceali placeholder text",
-            url: "https://timerse.com",
-          },
-          {
-            imageSrc: celebrationIconImageSrc,
-            title: "Company Name 3",
-            description: "Lorem ipsum donor amet siti ceali placeholder text",
-            url: "https://reddit.com",
-          },
-        ]}
+        cards={services}
         imageContainerCss={tw`p-2!`}
         imageCss={tw`w-20! h-20!`}
       />
@@ -104,7 +82,7 @@ export default () => {
         }
       />
 
-      <MainFeature2
+      {/* <MainFeature2
         subheading={<Subheading>A Reputed Brand</Subheading>}
         heading={
           <>
@@ -134,7 +112,7 @@ export default () => {
         imageDecoratorBlob={true}
         imageDecoratorBlobCss={tw`left-1/2 md:w-32 md:h-32 -translate-x-1/2 opacity-25`}
         textOnLeft={true}
-      />
+      /> */}
       <Testimonial
         subheading=""
         heading={

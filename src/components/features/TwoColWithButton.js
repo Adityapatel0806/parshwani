@@ -39,10 +39,9 @@ const PrimaryButton = styled(PrimaryButtonBase)(props => [
   props.buttonRounded && tw`rounded-full`
 ]);
 
-
 export default ({
   subheading = "",
-  
+  heading = "",
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   primaryButtonText = "Learn More",
   primaryButtonUrl = "https://timerse.com",
@@ -73,6 +72,8 @@ export default ({
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
+          <Heading>{heading}
+          </Heading>
             <Subheading style={{ fontSize: "2rem", marginLeft: "-0.5rem" }}>
               {subheading}
             </Subheading>
